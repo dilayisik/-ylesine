@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SÜRPRİZ</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background-image: url('https://trf1.net/wp-content/uploads/2024/12/SI202406230169-scaled.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        h2 {
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+        .buttons {
+            margin-top: 30px;
+            position: relative;
+        }
+        button {
+            font-size: 20px;
+            padding: 30px 40px;
+            margin: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 15px;
+            background-color: rgba(255, 0, 0, 0.7);
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+            color: red;
+        }
+        #evet {
+            background-color: rgb(218, 232, 13);
+        }
+        #hayir {
+            background-color: red;
+            position: absolute;
+        }
+        .victory {
+            display: none;
+            font-size: 40px;
+            color: gold;
+            text-shadow: 2px 2px 15px rgba(255, 215, 0, 0.8);
+            margin-top: 20px;
+        }
+        #victoryMessage {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: gold;
+            color: black;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h2>Bayramda konuşmamazlık olmazmış</h2>
+    <div class="buttons">
+        <button id="evet" onclick="evetTiklandi()">Evet</button>
+        <button id="hayir" onmouseover="kac()">Hayır</button>
+    </div>
+    <div id="victoryMessage">Zafer kutlaması! Hamilton ve Leclerc bile aynı takıma geçti, ayrı kalmak bizim neyimize?</div>
+    <script>
+        function kac() {
+            var hayir = document.getElementById('hayir');
+            var x = Math.random() * (window.innerWidth - hayir.offsetWidth);
+            var y = Math.random() * (window.innerHeight - hayir.offsetHeight);
+            hayir.style.left = x + "px";
+            hayir.style.top = y + "px";
+        }
+        function evetTiklandi() {
+            document.getElementById('victoryMessage').style.display = "block";
+            document.body.style.backgroundColor = "black";
+            setTimeout(function () {
+                alert("Zafer kutlaması! Hamilton ve Leclerc bile aynı takıma geçti, ayrı kalmak bizim neyimize?");
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
